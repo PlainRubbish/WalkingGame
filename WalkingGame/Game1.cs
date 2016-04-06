@@ -11,7 +11,9 @@ namespace WalkingGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D characterSheetTexture;
+        //Texture2D characterSheetTexture;
+
+        CharacterEntity character;
 
         public Game1()
         {
@@ -32,8 +34,7 @@ namespace WalkingGame
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
+            character = new CharacterEntity(this.GraphicsDevice);
             base.Initialize();
         }
 
@@ -48,10 +49,10 @@ namespace WalkingGame
 
             // TODO: use this.Content to load your game content here
             //
-            using (var stream = TitleContainer.OpenStream("Content/charactersheet.png"))
-            {
-                characterSheetTexture = Texture2D.FromStream(this.GraphicsDevice, stream);
-            }
+            //using (var stream = TitleContainer.OpenStream("Content/charactersheet.png"))
+           // {
+           //     characterSheetTexture = Texture2D.FromStream(this.GraphicsDevice, stream);
+           // }
         }
 
         /// <summary>
@@ -90,10 +91,13 @@ namespace WalkingGame
             //
             spriteBatch.Begin();
 
-            Vector2 topLeftOfSprite = new Vector2(50, 50);
-            Color tintColour = Color.White;
+            //render the entity
+            character.Draw(spriteBatch);            
 
-            spriteBatch.Draw(characterSheetTexture, topLeftOfSprite, tintColour);
+            //Vector2 topLeftOfSprite = new Vector2(50, 50);
+            //Color tintColour = Color.White;
+
+            //spriteBatch.Draw(characterSheetTexture, topLeftOfSprite, tintColour);
 
             spriteBatch.End();
 
