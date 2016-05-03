@@ -74,8 +74,9 @@ namespace WalkingGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 Exit();
 
-            // TODO: Add your update logic here
 
+            // TODO: Add your update logic here
+            character.Update(gameTime);
             base.Update(gameTime);
         }
 
